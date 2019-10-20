@@ -44,13 +44,20 @@ class Card(NamedTuple('Card', [('rank', int), ('suit', Suit)])):
         return suit_prefix + '_' + rank_suffix
 
 
-Hand = List[Card]
 Deck = List[Card]
 
 
 def standard_deck(include_jokers: bool = False) -> Deck:
     """Creates a standard 52 or 54 card deck.
 
+    The cards are randomly shuffled.
+
+    Args:
+        include_jokers: Include 2 jokers if True.
+
+    Returns:
+        A 52-card `Deck` if `include_jokers` is `False` or a 54-card `Deck` if
+        `include_jokers` is `True`.
     """
     deck = []
     for suit in [Suit.CLUBS, Suit.DIAMONDS, Suit.HEARTS, Suit.SPADES]:
